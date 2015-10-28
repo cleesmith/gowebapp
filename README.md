@@ -34,10 +34,12 @@ sudo ./gowebapp
 
 ### ToDo's
 * switch from Foundation to Bootstrap
-* GOOS="linux" GOARCH="amd64" go build
+* GOOS=linux GOARCH=amd64 go build
 	* cross compile doesn't seem to work on a Mac because of the included
 		C file in github.com/mattn/go-sqlite3/ ... see:
 		* https://github.com/mattn/go-sqlite3/issues/106
+		* https://github.com/mattn/go-sqlite3/issues/217
+		* http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
 		* simple solutions:
 			* don't cross compile on a Mac, just install Go and build app on that platform
 			* don't offer [SQLite](https://www.sqlite.org/) as a database option ... only MySQL
