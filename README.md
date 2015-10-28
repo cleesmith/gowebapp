@@ -34,21 +34,22 @@ sudo ./gowebapp
 
 ### ToDo's
 * switch from Foundation to Bootstrap
-* GOOS=linux GOARCH=amd64 go build
-	* cross compile doesn't seem to work on a Mac because of the included
-		C file in github.com/mattn/go-sqlite3/ ... see:
-		* https://github.com/mattn/go-sqlite3/issues/106
-		* https://github.com/mattn/go-sqlite3/issues/217
-		* http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
-		* simple solutions:
-			* don't cross compile on a Mac, just install Go and build app on that platform
-			* don't offer [SQLite](https://www.sqlite.org/) as a database option ... only MySQL
 * reduce the app's footprint to the bare minimum
 	* remove the usused dependencies (for my typical usage)
 		* such as the user registration and recaptcha stuff
 		* typically, my apps define an admin user who creates other users
 	* currently on a Mac the binary file size is 16,370,184
 		* which is not too big considering that is everything and all-in-one easy to deploy file
+* cross compile doesn't work on a Mac because the C file for SQLite
+	* GOOS=linux GOARCH=amd64 go build
+		* "shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c"
+	* see:
+		* https://github.com/mattn/go-sqlite3/issues/106
+		* https://github.com/mattn/go-sqlite3/issues/217
+		* http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
+		* simple solutions:
+			* don't cross compile on a Mac, just install Go and build app on that platform
+			* don't offer [SQLite](https://www.sqlite.org/) as a database option ... only MySQL
 
 ***
 ***
