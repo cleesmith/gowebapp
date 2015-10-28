@@ -29,7 +29,7 @@ cd gowebapp
 go build
 maybe, edit config/config.json to change various app settings
 sudo ./gowebapp
-	... why sudo? coz the default is port 80 edit config/config.json to change it
+	- why sudo? coz the default is port 80, so edit config/config.json to change it
 ```
 
 ### ToDo's
