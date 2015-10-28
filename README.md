@@ -35,6 +35,9 @@ sudo ./gowebapp
 * switch from Foundation to Bootstrap
 * remove user registration and recaptcha stuff
 * remove or limit the number of dependencies
+* reduce the app's footprint to the bare minimum
+	* currently on a Mac the binary file size is 16,370,184
+		* which is not too big considering that is everything all-in-one file
 
 ***
 ***
