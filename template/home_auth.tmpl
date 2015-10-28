@@ -1,0 +1,13 @@
+{{define "title"}}Go Web App{{end}}
+{{define "head"}}{{end}}
+{{define "content"}}
+<div class="row">
+	<div class="large-12 columns">
+		<h1>Hello, {{.first_name}}</h1>
+    <h3>template/home_auth.tmpl</h3>
+		<p>You have arrived.</p>
+		{{template "footer" .}}
+	</div>
+</div>
+{{end}}
+{{define "foot"}}{{end}}

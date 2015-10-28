@@ -1,0 +1,13 @@
+{{define "title"}}Go Web App{{end}}
+{{define "head"}}{{end}}
+{{define "content"}}
+<div class="row">
+	<div class="large-12 columns">
+		<h1>{{template "title" .}}</h1>
+    <h3>template/home_anon.tmpl</h3>
+		<p>Click <a href="{{.BaseURI}}login">here</a> to login.</p>
+		{{template "footer" .}}
+	</div>
+</div>
+{{end}}
+{{define "foot"}}{{end}}
