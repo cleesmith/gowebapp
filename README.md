@@ -31,6 +31,11 @@ maybe edit config/config.json to change various app settings
 sudo ./gowebapp
 ```
 
+### ToDo's
+* switch from Foundation to Bootstrap
+* remove user registration and recaptcha stuff
+* remove or limit the number of dependencies
+
 ***
 ***
 
