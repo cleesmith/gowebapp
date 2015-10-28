@@ -35,7 +35,7 @@ sudo ./gowebapp
 ### ToDo's
 1. switch from Foundation to Bootstrap
 1. reduce the app's footprint to the bare minimum
-	* remove the usused dependencies (for my typical usage)
+	* remove the unused dependencies, well,for my typical usage anyways
 		* such as the user registration and recaptcha stuff
 		* typically, my apps define an admin user who creates other users
 	* currently on a Mac the binary file size is 16,370,184
