@@ -43,6 +43,10 @@ sudo ./gowebapp
 * cross compile doesn't work on a Mac because the C file for SQLite
 	* GOOS=linux GOARCH=amd64 go build ... yields this error message:
 		"shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c"
+	* and CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build ... yields this error message:
+        # runtime/cgo
+        ld: unknown option: --build-id=none
+        clang: error: linker command failed with exit code 1 (use -v to see invocation)
 	* see:
 		* https://github.com/mattn/go-sqlite3/issues/106
 		* https://github.com/mattn/go-sqlite3/issues/217
