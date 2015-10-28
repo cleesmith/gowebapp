@@ -44,6 +44,7 @@ sudo ./gowebapp
 	* ```GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
 		```shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c```
 	* and ```CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
+
 	      ```
         # runtime/cgo
         ld: unknown option: --build-id=none
