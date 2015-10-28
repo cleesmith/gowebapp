@@ -41,8 +41,8 @@ sudo ./gowebapp
 	* currently on a Mac the binary file size is 16,370,184
 		* which is not too big considering that is everything and all-in-one easy to deploy file
 * cross compile doesn't work on a Mac because the C file for SQLite
-	* GOOS=linux GOARCH=amd64 go build
-		* "shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c"
+	* GOOS=linux GOARCH=amd64 go build ... yields this error message:
+		"shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c"
 	* see:
 		* https://github.com/mattn/go-sqlite3/issues/106
 		* https://github.com/mattn/go-sqlite3/issues/217
