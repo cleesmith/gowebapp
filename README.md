@@ -21,6 +21,14 @@ go build
 This app works as expected, so by vendoring the dependencies the app should continue to work
 independent of any future changes to the dependenies on github or other repos.
 
+### Usage
+```
+cd ~/go/src
+git clone https://github.com/cleesmith/gowebapp.git
+cd gowebapp
+go build
+```
+
 ***
 ***
 
