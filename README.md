@@ -33,14 +33,14 @@ sudo ./gowebapp
 ```
 
 ### ToDo's
-* switch from Foundation to Bootstrap
-* reduce the app's footprint to the bare minimum
+1. switch from Foundation to Bootstrap
+1. reduce the app's footprint to the bare minimum
 	* remove the usused dependencies (for my typical usage)
 		* such as the user registration and recaptcha stuff
 		* typically, my apps define an admin user who creates other users
 	* currently on a Mac the binary file size is 16,370,184
 		* which is not too big considering that is everything and all-in-one easy to deploy file
-* cross compile doesn't work on a Mac because the C file for SQLite
+1. cross compile doesn't work on a Mac because the C file for SQLite
 	* ```GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
 		```shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c```
 	* and ```CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
