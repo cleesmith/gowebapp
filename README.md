@@ -1,4 +1,27 @@
-> From the original project at [GoWebApp](https://github.com/josephspurrier/gowebapp):
+# GoWebApp - a basic MVC web app in Golang
+
+But with all of the dependencies vendored using [GoDep](https://github.com/tools/godep).
+```
+godep usage:
+
+when using Go 1.5:
+  - don't do: godep save -r
+  - ~/.bash_profile contains:
+    export GO15VENDOREXPERIMENT=1
+    ... this causes godep to use the vendor folder for dependencies
+
+godep save
+  - creates Godeps folder with Godeps.json in there
+  - creates vendor folder and copies dependencies into it
+
+go build
+  - which will use the vendor folder instead of ~/go/src/whatever
+```
+
+***
+***
+
+> See the original project at [GoWebApp](https://github.com/josephspurrier/gowebapp):
 
 ***
 ***
