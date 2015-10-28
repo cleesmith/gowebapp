@@ -39,7 +39,7 @@ sudo ./gowebapp
 		* such as the user registration and recaptcha stuff
 		* typically, my apps define an admin user who creates other users
 	* currently on a Mac the binary file size is 16,370,184
-		* which is not too big considering that is everything and all-in-one easy to deploy file
+		* which is not too big considering that is everything -- an all-in-one easy to deploy file
 1. cross compile doesn't work on a Mac because the C file for SQLite
 	* ```GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
 		```shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c```
