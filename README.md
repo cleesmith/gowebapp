@@ -1,4 +1,4 @@
-> From the original project at ![GoWebApp](https://github.com/josephspurrier/gowebapp):
+> From the original project at [GoWebApp](https://github.com/josephspurrier/gowebapp):
 
 ***
 ***
