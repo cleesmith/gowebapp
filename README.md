@@ -27,6 +27,7 @@ cd ~/go/src
 git clone https://github.com/cleesmith/gowebapp.git
 cd gowebapp
 go build
+maybe edit config/config.json to change various app settings
 sudo ./gowebapp
 ```
 
