@@ -1,6 +1,6 @@
-# GoWebApp - a basic MVC web app in Golang
+# GoWebApp
 
-But with all of the dependencies vendored using [GoDep](https://github.com/tools/godep).
+A basic MVC web app in Golang, but with all of the dependencies vendored using [GoDep](https://github.com/tools/godep).
 ```
 godep usage:
 
