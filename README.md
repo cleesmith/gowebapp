@@ -38,7 +38,7 @@ sudo ./gowebapp
 		* such as the user registration and recaptcha stuff
 		* typically, my apps define an admin user who creates other users
 	* currently on a Mac the binary file size is 16,370,184
-		* which is not too big considering that is everything all-in-one file
+		* which is not too big considering that is everything and all-in-one easy to deploy file
 
 ***
 ***
