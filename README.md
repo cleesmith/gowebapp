@@ -18,6 +18,9 @@ go build
   - which will use the vendor folder instead of ~/go/src/whatever
 ```
 
+This app works as expected, so by vendoring the dependencies the app should continue to work
+independent of any future changes to the dependenies on github or other repos.
+
 ***
 ***
 
