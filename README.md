@@ -40,7 +40,7 @@ sudo ./gowebapp
 		* typically, my apps define an admin user who creates other users
 	* currently on a Mac the binary file size is 16,370,184
 		* which is not too big considering that is everything -- an all-in-one easy to deploy file
-1. cross compile doesn't work on a Mac because the C file for SQLite
+1. cross compile doesn't work on a Mac because of the included C file for SQLite
 	* ```GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
 		```shared/database/database.go:9:2: C source files not allowed when not using cgo or SWIG: sqlite3-binding.c```
 	* and ```CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build``` ... yields this error message:
@@ -57,6 +57,7 @@ sudo ./gowebapp
 	* solutions:
 		* don't cross compile, just install Go on the specific platform then build the app
 		* don't offer [SQLite](https://www.sqlite.org/) as a database option ... only MySQL
+		* maybe, use BoltDB instead ... it's NoSQL though
 
 ***
 ***

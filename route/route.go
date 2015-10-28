@@ -85,7 +85,7 @@ func routes() *httprouter.Router {
 		New().
 		ThenFunc(controller.AboutGET)))
 
-	// Enable Pprof
+	// Enable Pprof ... in browser do: http://localhost/debug/pprof/
 	r.GET("/debug/pprof/*pprof", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(pprofhandler.Handler)))

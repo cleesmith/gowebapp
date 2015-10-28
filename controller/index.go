@@ -13,6 +13,7 @@ import (
 func Index(w http.ResponseWriter, r *http.Request) {
 	// Get session
 	session := session.Instance(r)
+	fmt.Printf("session=%+v\n", session)
 
 	if session.Values["id"] != nil {
 		// Display the view
