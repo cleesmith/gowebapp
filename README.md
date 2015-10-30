@@ -58,7 +58,7 @@ sudo ./gowebapp
 	* solutions:
 		* don't cross compile, just install Go on the specific platform then build the app
 		* don't use MySQL or SQLite for data storage
-		* why? KISS
+		* why? [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
 ***
 ***
