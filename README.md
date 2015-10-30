@@ -57,7 +57,7 @@ sudo ./gowebapp
 	* solutions:
 		* don't cross compile, just install Go on the specific platform then build the app
 		* don't offer [SQLite](https://www.sqlite.org/) as a database option ... only MySQL
-		* maybe, use BoltDB instead ... it's NoSQL though
+1. use BoltDB instead of SQLite or MySQL
 
 ***
 ***
