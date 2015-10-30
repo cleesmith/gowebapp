@@ -1,25 +1,6 @@
 # GoWebApp
 
 A basic MVC web app in Golang, but with all of the dependencies vendored using [GoDep](https://github.com/tools/godep).
-```
-godep usage:
-
-when using Go 1.5:
-  - don't do: godep save -r
-  - ~/.bash_profile contains:
-    export GO15VENDOREXPERIMENT=1
-    ... this causes godep to use the vendor folder for dependencies
-
-godep save
-  - creates Godeps folder with Godeps.json in there
-  - creates vendor folder and copies dependencies into it
-
-go build
-  - which will use the vendor folder instead of ~/go/src/whatever
-```
-
-This app works as expected, so by vendoring the dependencies the app should continue to work
-independent of any future changes to the dependenies on github or other repos.
 
 ### Usage
 ```
@@ -59,6 +40,26 @@ sudo ./gowebapp
 		* don't cross compile, just install Go on the specific platform then build the app
 		* don't use MySQL or SQLite for data storage
 		* why? [KISS](https://en.wikipedia.org/wiki/KISS_principle)
+
+### Godep
+
+```
+Go 1.5:
+  - don't do: godep save -r
+  - ~/.bash_profile contains:
+    export GO15VENDOREXPERIMENT=1
+    ... this causes godep to use the vendor folder for dependencies
+
+godep save
+  - creates Godeps folder with Godeps.json in there
+  - creates vendor folder and copies dependencies into it
+
+go build
+  - which will use the vendor folder instead of ~/go/src/whatever
+```
+
+This app works as expected, so by vendoring the dependencies the app should continue to work
+independent of any future changes to the dependenies on github or other repos.
 
 ***
 ***
