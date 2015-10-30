@@ -33,8 +33,8 @@ sudo ./gowebapp
 ```
 
 ### ToDo's
-1. switch from Foundation to Bootstrap
-1. use BoltDB instead of SQLite or MySQL
+1. switch from [Foundation](http://foundation.zurb.com/) to [Bootstrap](http://getbootstrap.com/)
+1. use [BoltDB](https://github.com/boltdb/bolt) instead of SQLite or MySQL
 1. reduce the app's footprint to the bare minimum
 	* remove the unused dependencies, well, for my typical usage anyways
 		* such as the user registration and recaptcha stuff
