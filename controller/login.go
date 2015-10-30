@@ -50,7 +50,7 @@ func LoginPOST(w http.ResponseWriter, r *http.Request) {
 	// Get session
 	sess := session.Instance(r)
 
-	// Prevent brute force login attempts by not hitting MySQL and pretending like it was invalid :-)
+	// Prevent brute force login attempts by not hitting database and pretending like it was invalid :-)
 	if sess.Values["login_attempt"] != nil && sess.Values["login_attempt"].(int) >= 5 {
 		log.Println("Brute force login prevented")
 		sess.AddFlash(view.Flash{"Sorry, no brute force :-)", view.FlashNotice})
