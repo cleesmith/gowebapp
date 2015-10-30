@@ -34,6 +34,8 @@ sudo ./gowebapp
 
 ### ToDo's
 1. switch from Foundation to Bootstrap
+1. use BoltDB instead of SQLite or MySQL
+	* unneeded dependencies, although it may be common to use a SQL database
 1. reduce the app's footprint to the bare minimum
 	* remove the unused dependencies, well, for my typical usage anyways
 		* such as the user registration and recaptcha stuff
@@ -57,7 +59,6 @@ sudo ./gowebapp
 	* solutions:
 		* don't cross compile, just install Go on the specific platform then build the app
 		* don't offer [SQLite](https://www.sqlite.org/) as a database option ... only MySQL
-1. use BoltDB instead of SQLite or MySQL
 
 ***
 ***
