@@ -34,7 +34,7 @@ sudo ./gowebapp
 
 ### ToDo's
 1. switch from [Foundation](http://foundation.zurb.com/) to [Bootstrap](http://getbootstrap.com/)
-1. use [BoltDB](https://github.com/boltdb/bolt) instead of SQLite or MySQL
+1. use [BoltDB](https://github.com/boltdb/bolt) instead of [MySQL](https://www.mysql.com/) or [SQLite](https://www.sqlite.org/)
 1. reduce the app's footprint to the bare minimum
 	* remove the unused dependencies, well, for my typical usage anyways
 		* such as the user registration and recaptcha stuff
@@ -57,7 +57,8 @@ sudo ./gowebapp
 		* http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
 	* solutions:
 		* don't cross compile, just install Go on the specific platform then build the app
-		* don't use [MySQL](https://www.mysql.com/) or [SQLite](https://www.sqlite.org/) for data storage
+		* don't use MySQL or SQLite for data storage
+		* why? KISS
 
 ***
 ***
