@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"database/sql"
 	"log"
 	"net/http"
 
@@ -72,7 +71,8 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
 	// Get database result
 	_, err := model.UserIdByEmail(email)
 
-	if err == sql.ErrNoRows { // If success (no user exists with that email)
+	// if err == sql.ErrNoRows { // If success (no user exists with that email)
+	if err != nil { // If success (no user exists with that email)
 		ex := model.UserCreate(first_name, last_name, email, password)
 		// Will only error if there is a problem with the query
 		if ex != nil {

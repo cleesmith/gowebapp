@@ -15,7 +15,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	session := session.Instance(r)
 	fmt.Printf("session=%+v\n", session)
 
-	if session.Values["id"] != nil {
+	// if session.Values["id"] != nil {
+	if session.Values["email"] != nil {
 		// Display the view
 		v := view.New(r)
 		v.Name = "home_auth"

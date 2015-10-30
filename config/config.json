@@ -1,18 +1,6 @@
 {
 	"Database": {
-		"Name": "bolt_gowebapp.db",
-		// "Type": "SQLite",
-		// "MySQL": {
-		// 	"Username": "root",
-		// 	"Password": "",
-		// 	"Name": "gowebapp",
-		// 	"Hostname": "127.0.0.1",
-		// 	"Port": 3306,
-		// 	"Parameter": "?parseTime=true"
-		// },
-		// "SQLite": {
-		// 	"Parameter": "gowebapp.db"
-		// }
+		"Name": "bolt_gowebapp.db"
 	},
 	"Email": {
 		"Username": "",

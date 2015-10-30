@@ -39,7 +39,7 @@ func main() {
 
 	// Connect to database
 	database.Connect(config.Database)
-	defer DB.Close()
+	defer database.DB.Close()
 
 	// Configure the Google reCAPTCHA prior to loading view plugins
 	recaptcha.Configure(config.Recaptcha)
@@ -62,7 +62,7 @@ var config = &configuration{}
 
 // configuration contains the application settings
 type configuration struct {
-	Database  database.Databases      `json:"Database"`
+	Database  database.Database       `json:"Database"`
 	Email     email.SMTPInfo          `json:"Email"`
 	Recaptcha recaptcha.RecaptchaInfo `json:"Recaptcha"`
 	Server    server.Server           `json:"Server"`
@@ -74,4 +74,49 @@ type configuration struct {
 // ParseJSON unmarshals bytes to structs
 func (c *configuration) ParseJSON(b []byte) error {
 	return json.Unmarshal(b, &c)
+}
+
+// Create an Admin user is needed
+func CreateAdmin() {
+	// 1. if Admin user already exists then return
+	// 2. if not then create an Admin user with a known password
+	//    let Admin change these after login:
+	//      email: admin@admin.admin
+	//      password: admin
+
+	// first_name := r.FormValue("first_name")
+	// last_name := r.FormValue("last_name")
+	// email := r.FormValue("email")
+	// password, errp := passhash.HashString(r.FormValue("password"))
+	// // If password hashing failed
+	// if errp != nil {
+	// 	log.Println(errp)
+	// 	sess.AddFlash(view.Flash{"An error occurred on the server. Please try again later.", view.FlashError})
+	// 	sess.Save(r, w)
+	// 	http.Redirect(w, r, "/register", http.StatusFound)
+	// 	return
+	// }
+
+	// _, err := model.UserIdByEmail(email)
+	// if err == sql.ErrNoRows { // If success (no user exists with that email)
+	// 	ex := model.UserCreate(first_name, last_name, email, password)
+	// 	// Will only error if there is a problem with the query
+	// 	if ex != nil {
+	// 		log.Println(ex)
+	// 		sess.AddFlash(view.Flash{"An error occurred on the server. Please try again later.", view.FlashError})
+	// 		sess.Save(r, w)
+	// 	} else {
+	// 		sess.AddFlash(view.Flash{"Account created successfully for: " + email, view.FlashSuccess})
+	// 		sess.Save(r, w)
+	// 		http.Redirect(w, r, "/login", http.StatusFound)
+	// 		return
+	// 	}
+	// } else if err != nil { // Catch all other errors
+	// 	log.Println(err)
+	// 	sess.AddFlash(view.Flash{"An error occurred on the server. Please try again later.", view.FlashError})
+	// 	sess.Save(r, w)
+	// } else { // Else the user already exists
+	// 	sess.AddFlash(view.Flash{"Account already exists for: " + email, view.FlashError})
+	// 	sess.Save(r, w)
+	// }
 }

@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
@@ -73,9 +72,19 @@ func LoginPOST(w http.ResponseWriter, r *http.Request) {
 
 	// Get database result
 	result, err := model.UserByEmail(email)
+	fmt.Printf("model.UserByEmail=%v\nresult=%T=%+v\nerr=%T=%+v\n", email, result, result, err, err)
+	// cls: force Login successfully
+	clearSessionVariables(sess)
+	sess.AddFlash(view.Flash{"Login successful!", view.FlashSuccess})
+	sess.Values["email"] = email
+	sess.Values["first_name"] = "Molly"
+	sess.Save(r, w)
+	http.Redirect(w, r, "/", http.StatusFound)
+	return
 
 	// Determine if user exists
-	if err == sql.ErrNoRows {
+	// if err == sql.ErrNoRows {
+	if err != nil {
 		loginAttempt(sess)
 		sess.AddFlash(view.Flash{"Password is incorrect - Attempt: " + fmt.Sprintf("%v", sess.Values["login_attempt"]), view.FlashWarning})
 		sess.Save(r, w)
@@ -85,21 +94,21 @@ func LoginPOST(w http.ResponseWriter, r *http.Request) {
 		sess.AddFlash(view.Flash{"There was an error. Please try again later.", view.FlashError})
 		sess.Save(r, w)
 	} else if passhash.MatchString(result.Password, password) {
-		if result.Status_id != 1 {
-			// User inactive and display inactive message
-			sess.AddFlash(view.Flash{"Account is inactive so login is disabled.", view.FlashNotice})
-			sess.Save(r, w)
-		} else {
-			// Login successfully
-			clearSessionVariables(sess)
-			sess.AddFlash(view.Flash{"Login successful!", view.FlashSuccess})
-			sess.Values["id"] = result.Id
-			sess.Values["email"] = email
-			sess.Values["first_name"] = result.First_name
-			sess.Save(r, w)
-			http.Redirect(w, r, "/", http.StatusFound)
-			return
-		}
+		// if result.Status_id != 1 {
+		// 	// User inactive and display inactive message
+		// 	sess.AddFlash(view.Flash{"Account is inactive so login is disabled.", view.FlashNotice})
+		// 	sess.Save(r, w)
+		// } else {
+		// Login successfully
+		clearSessionVariables(sess)
+		sess.AddFlash(view.Flash{"Login successful!", view.FlashSuccess})
+		// sess.Values["id"] = result.Id
+		sess.Values["email"] = email
+		sess.Values["first_name"] = result.First_name
+		sess.Save(r, w)
+		http.Redirect(w, r, "/", http.StatusFound)
+		return
+		// }
 	} else {
 		loginAttempt(sess)
 		sess.AddFlash(view.Flash{"Password is incorrect - Attempt: " + fmt.Sprintf("%v", sess.Values["login_attempt"]), view.FlashWarning})
@@ -115,7 +124,8 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 	sess := session.Instance(r)
 
 	// If user is authenticated
-	if sess.Values["id"] != nil {
+	// if sess.Values["id"] != nil {
+	if sess.Values["email"] != nil {
 		clearSessionVariables(sess)
 		sess.AddFlash(view.Flash{"Goodbye!", view.FlashNotice})
 		sess.Save(r, w)

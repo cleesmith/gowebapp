@@ -7,12 +7,12 @@ import (
 )
 
 type User struct {
-	Email      string    `db:"email"`
-	First_name string    `db:"first_name"`
-	Last_name  string    `db:"last_name"`
-	Password   string    `db:"password"`
-	Created_at time.Time `db:"created_at"`
-	Updated_at time.Time `db:"updated_at"`
+	Email      string    `json:"email"`
+	First_name string    `json:"first_name"`
+	Last_name  string    `json:"last_name"`
+	Password   string    `json:"password"`
+	Created_at time.Time `json:"created_at"`
+	Updated_at time.Time `json:"updated_at"`
 }
 
 // UserByEmail gets user information from email
@@ -33,29 +33,22 @@ func UserIdByEmail(email string) (User, error) {
 
 func UserCreate(first_name, last_name, email, password string) error {
 	var err error
+	now := time.Now() // time.RFC3339 ???
+	// if err = bucket.Put([]byte(user.Created_at.Format(time.RFC3339)), encoded); err != nil {
+	// 	return err
+	// }
+	// if err = bucket.Put([]byte(user.Updated_at.Format(time.RFC3339)), encoded); err != nil {
+	// 	return err
+	// }
 	user := &User{
 		First_name: first_name,
 		Last_name:  last_name,
 		Email:      email,
 		Password:   password,
+		Created_at: now,
+		Updated_at: now,
 	}
-
-	DB.Update(func(tx *bolt.Tx) error {
-		bucket, err := tx.CreateBucketIfNotExists([]byte("users"))
-		if err != nil {
-			return err
-		}
-		encoded, err := json.Marshal(user)
-		if err != nil {
-			return err
-		}
-		if err = bucket.Put([]byte(user.Created_at.Format(time.RFC3339)), encoded); err != nil {
-			return err
-		}
-		if err = bucket.Put([]byte(user.Updated_at.Format(time.RFC3339)), encoded); err != nil {
-			return err
-		}
-	})
-
+	//              bucket,  key,        data
+	database.Update("users", user.Email, &user)
 	return err
 }
