@@ -38,7 +38,7 @@ sudo ./gowebapp
 1. reduce the app's footprint to the bare minimum
 	* remove the unused dependencies, well, for my typical usage anyways
 		* such as the user registration and recaptcha stuff
-		* typically, my apps define an admin user who creates other users
+		* typically, my apps define an **admin** user who manages other users
 	* currently on a Mac the binary file size is 16,370,184
 		* which is not too big considering that is everything -- an all-in-one easy to deploy file
 1. cross compile doesn't work on a Mac because of the included C file for SQLite
