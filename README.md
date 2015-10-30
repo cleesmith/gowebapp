@@ -57,7 +57,7 @@ sudo ./gowebapp
 		* http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
 	* solutions:
 		* don't cross compile, just install Go on the specific platform then build the app
-		* don't use MySQL or [SQLite](https://www.sqlite.org/) for data storage
+		* don't use [MySQL](https://www.mysql.com/) or [SQLite](https://www.sqlite.org/) for data storage
 
 ***
 ***
